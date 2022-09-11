@@ -4,7 +4,7 @@
 }
 
 body {
-  background: radial-gradient(circle, rgb(23, 0, 156) 0%, rgb(7, 0, 46) 89%, rgb(0, 0, 0) 100%);
+  background: radial-gradient(circle, rgb(23, 0, 156) 0%, #04001d 89%, black 100%);
 }
 
 span {
@@ -12,12 +12,88 @@ span {
 }
 
 p {
-  font-size: 13px;
   margin: 0;
 }
 
 .itm {
-  margin: 1em 0;
+  margin: 1em 0 0 1em;
+}
+
+.ski {
+  margin: 1em 0 0 1em;
+  font-size: 15px;
+}
+
+.itm :first-child:first-child {
+  font-size: 19.95px;
+}
+
+.itm :nth-child(2) {
+  font-size: 11.25px;
+}
+
+.itm :last-child {
+  font-size: 15px;
+}
+
+h2 {
+  color: rgb(0, 81, 255);
+}
+
+.spaned {
+  color: rgb(166, 70, 255);
+}
+.spaned :nth-child(1) {
+  color: black;
+}
+
+a {
+  font-style: italic;
+  color: #0041cc;
+  transition: 0.2s;
+}
+
+.hover:hover, a:hover {
+  color: #8d13ff;
+}
+
+.imgbox img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 100%;
+  border: 2px solid rgba(51, 51, 51, 0.696);
+  box-shadow: 1px 3px 23px -5px rgba(0, 0, 0, 0.33);
+  display: flex;
+  flex-direction: row;
+  margin-right: 1em;
+}
+
+h1.out {
+  margin: 0;
+  font-size: 60px;
+}
+
+h1.tuck {
+  margin: 0;
+  font-size: 30px;
+  display: none;
+}
+
+.bottom {
+  padding: 1em;
+  display: flex;
+  border-radius: 0 0 1em 1em;
+  background: radial-gradient(circle, rgb(223, 229, 243) 0%, rgb(235, 232, 246) 93%);
+}
+
+.t1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(47, 45, 52);
+  padding: 1em;
+  border-radius: 1em 1em 0 0;
+  color: #d0d2cb;
 }
 
 .outer {
@@ -25,20 +101,30 @@ p {
 }
 
 .inner {
-  padding: 1em;
+  padding: 0;
   margin: 2em;
   border-radius: 1em;
-  background: radial-gradient(circle, rgb(223, 229, 243) 0%, rgb(235, 232, 246) 93%);
   box-shadow: 1px 3px 23px -5px rgba(0, 0, 0, 0.75);
 }
 
-h2 {
-  color: rgb(0, 81, 255);
-  font-size: 16px;
+@media (max-width: 660px) {
+  .inner {
+    margin: 0;
+  }
+  .outer {
+    margin: 0;
+  }
+  .bottom {
+    flex-direction: column;
+  }
 }
-
-h1 {
-  margin: 0;
+@media (max-width: 950px) {
+  h1.tuck {
+    display: block;
+  }
+  h1.out {
+    display: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

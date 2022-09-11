@@ -1,36 +1,122 @@
 $primary-color: rgb(0, 81, 255);
+$secondary-color: rgb(166, 70, 255);
+$base-size: 15px;
+$top-color: rgb(47, 45, 52);
+$background-color: rgb(23,0,156);
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700;800&display=swap');
+@mixin textzer($percentage) {
+    font-size: $base-size * $percentage;
+}
 
 *{
     font-family: 'Open Sans'
 }
 body{
-    background: radial-gradient(circle, rgba(23,0,156,1) 0%, rgba(7,0,46,1) 89%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, $background-color 0%, darken($background-color, 25%) 89%, darken($background-color, 90%) 100%);
 }
 span{
     font-weight: 1000;
 }
 p{
-    font-size: 13px;
     margin: 0;
 }
 .itm{
-    margin: 1em 0;
+    margin: 1em 0 0 1em;
 }
-.outer{
-    margin: 0em;
+.ski{
+    margin: 1em 0 0 1em;
+    @include textzer(1.0)
 }
-.inner{
-    padding: 1em;
-    margin: 2em;
-    border-radius: 1em;
-    background: radial-gradient(circle, rgb(223, 229, 243) 0%, rgb(235, 232, 246) 93%);
-    box-shadow: 1px 3px 23px -5px rgba(0,0,0,0.75);
+.itm :first-child:first-child{
+    @include textzer(1.33);
+}
+.itm :nth-child(2){
+    @include textzer(0.75);
+}
+.itm :last-child{
+    @include textzer(1.0);
 }
 h2{
     color: $primary-color;
-    font-size: 16px;
 }
-h1{
+
+.spaned{
+    color: $secondary-color;
+    & :nth-child(1){
+        color: black;
+    }
+}
+a{
+    font-style: italic;
+    color: darken($primary-color, 10%);
+    transition: .2s;
+    @extend .hover;
+}
+.hover:hover{
+    color: darken($secondary-color, 10%);
+}
+.imgbox img{
+    height: 10rem;
+    width: 10rem;
+    border-radius: 100%;
+    border: 2px solid rgba(51, 51, 51, 0.696);
+    box-shadow: 1px 3px 23px -5px rgba(0,0,0,0.33);
+    display: flex;
+    flex-direction: row;
+    margin-right: 1em;
+}
+
+h1.out{
     margin: 0;
+    @include textzer(4.0);
+}
+h1.tuck{
+    margin: 0;
+    @include textzer(2.0);
+    display: none;
+}
+.bottom{
+    padding: 1em;
+    display: flex;
+    border-radius: 0 0 1em 1em;
+    background: radial-gradient(circle, rgb(223, 229, 243) 0%, rgb(235, 232, 246) 93%);
+}
+.t1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $top-color;
+    padding: 1em;
+    border-radius: 1em 1em 0 0;
+    color: invert($top-color);
+}
+
+.outer{
+    margin: 0em;
+
+}
+.inner{
+    padding: 0;
+    margin: 2em;
+    border-radius: 1em; 
+    box-shadow: 1px 3px 23px -5px rgba(0,0,0,0.75);
+}
+@media (max-width: 660px){
+    .inner{
+        margin: 0;
+    }
+    .outer{
+        margin: 0;
+    }
+    .bottom{
+        flex-direction: column;
+    }
+}
+@media (max-width: 950px){
+    h1.tuck{
+        display: block;
+    }
+    h1.out{
+        display: none;
+    }
 }
